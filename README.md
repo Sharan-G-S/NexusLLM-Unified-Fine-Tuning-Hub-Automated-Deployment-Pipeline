@@ -1,11 +1,12 @@
-# NexusLLM: Unified Fine-Tuning Hub
+# NexusLLM: Financial Intelligence Edition
 
-NexusLLM is a powerful, streamlined environment for fine-tuning Large Language Models (LLMs) and Vision Language Models (VLMs) using **LLaMA-Factory**. It features a **Sectional Push Subsystem** that ensures modular and mistake-free repository management.
+NexusLLM is a high-performance environment for fine-tuning **Financial Intelligence** models using **LLaMA-Factory**. It is optimized for specializing models like **Qwen-2.5** for financial sentiment analysis, market trend reasoning, and automated investment insights.
 
 ## Features
-- **Unified Interface**: Supports 100+ models (Llama-3, Mistral, Qwen, etc.).
-- **Sectional Push Subsystem**: Automated script to commit/push changes in logical sections (`env`, `data`, `config`, `train`, `eval`).
-- **Standardized Workflows**: Pre-configured templates for Supervised Fine-Tuning (SFT) and Direct Preference Optimization (DPO).
+- **Project Focus**: Financial Intelligence (Sentiment, Market Analysis).
+- **Core Model**: Qwen-2.5-7B (Specialized for reasoning).
+- **Sectional Push Subsystem**: Modular repository management via `nexus.py`.
+- **Unified Pipeline**: Pre-configured for Supervised Fine-Tuning (SFT).
 
 ## Getting Started
 
@@ -14,22 +15,16 @@ NexusLLM is a powerful, streamlined environment for fine-tuning Large Language M
    python3 nexus.py init
    ```
 
-2. **Install dependencies**:
-   ```bash
-   pip install -r requirements.txt
-   ```
-
-3. **Manage the repository**:
+2. **Manage the repository**:
    Use the `nexus push` command to commit your changes section-by-section:
    ```bash
-   python3 nexus.py push env -m "Updated dependencies"
-   python3 nexus.py push data -m "Added healthcare dataset"
-   python3 nexus.py push config -m "Optimized Llama-3 hyperparameters"
+   python3 nexus.py push data -m "Added finance sentiment dataset"
+   python3 nexus.py push config -m "Added Qwen-2.5 finance sft config"
    ```
 
-## Directory Structure
-- `configs/`: YAML configurations for fine-tuning.
-- `data/`: Datasets and `dataset_info.json`.
-- `outputs/`: Training logs and checkpoints.
-- `scripts/`: Training and evaluation shell scripts.
-- `nexus.py`: The core automation CLI.
+## Financial Data
+- `data/finance/sentiment.json`: Targeted financial sentiment training data.
+- `dataset_info.json`: LLaMA-Factory link for the finance dataset.
+
+## Configuration
+- `configs/qwen2.5/sft_config.yaml`: Optimized hyperparameters for Qwen-2.5 on financial tasks.

@@ -8,8 +8,9 @@ class Nexus:
     def __init__(self):
         self.sections = {
             "env": ["requirements.txt", "nexus.py", "README.md", ".gitignore"],
-            "data": ["data/", "dataset_info.json"],
+            "data": ["data/", "dataset_info.json", "scripts/data_prep/"],
             "config": ["configs/"],
+            "infra": ["deployment/", "configs/deepspeed/"],
             "train": ["outputs/", "scripts/train.sh"],
             "eval": ["outputs/eval/", "scripts/eval.sh"]
         }
@@ -69,6 +70,15 @@ class Nexus:
         except subprocess.CalledProcessError:
             print("No remote repository configured. Commit saved locally.")
 
+    def run_train(self, config_path, use_deepspeed=False):
+        cmd = ["llamafactory-cli", "train", config_path]
+        if use_deepspeed:
+            ds_config = "configs/deepspeed/ds_z3_config.json"
+            cmd = ["deepspeed", "--num_gpus", "1", "llamafactory-cli", "train", config_path, "--deepspeed", ds_config]
+        
+        print(f"Starting training with config: {config_path}")
+        self.run_command(cmd)
+
 def main():
     parser = argparse.ArgumentParser(description="Nexus: LLaMA-Factory Automation & Push Subsystem")
     subparsers = parser.add_subparsers(dest="command")
@@ -78,8 +88,14 @@ def main():
 
     # Push
     push_parser = subparsers.add_parser("push", help="Push a specific section to the repository")
-    push_parser.add_argument("section", choices=["env", "data", "config", "train", "eval"], help="Section to push")
+    push_parser.add_argument("section", choices=["env", "data", "config", "infra", "train", "eval"], help="Section to push")
     push_parser.add_argument("-m", "--message", required=True, help="Commit message")
+
+    # Run Train
+    train_parser = subparsers.add_parser("run", help="Run a training job")
+    train_parser.add_argument("action", choices=["train"], help="Action to run")
+    train_parser.add_argument("--config", required=True, help="Path to YAML config")
+    train_parser.add_argument("--deepspeed", action="store_true", help="Use DeepSpeed ZeRO-3")
 
     args = parser.parse_args()
 
@@ -88,6 +104,9 @@ def main():
         nexus.init()
     elif args.command == "push":
         nexus.push(args.section, args.message)
+    elif args.command == "run":
+        if args.action == "train":
+            nexus.run_train(args.config, args.deepspeed)
     else:
         parser.print_help()
 
