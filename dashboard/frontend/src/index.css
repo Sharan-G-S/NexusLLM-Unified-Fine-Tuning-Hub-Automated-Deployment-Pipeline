@@ -1,0 +1,41 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  background-color: #0a0a0c;
+  color: white;
+}
+
+body {
+  @apply overflow-x-hidden;
+}
+
+.glass-card {
+  @apply bg-card backdrop-blur-xl border border-white/5 rounded-2xl;
+}
+
+.btn-primary {
+  @apply px-4 py-2 bg-primary hover:bg-primary/80 transition-all rounded-lg font-medium shadow-lg shadow-primary/20;
+}
+
+.btn-secondary {
+  @apply px-4 py-2 bg-secondary hover:bg-secondary/80 transition-all rounded-lg font-medium shadow-lg shadow-secondary/20;
+}
+
+.nav-link {
+  @apply flex items-center gap-2 px-4 py-2 rounded-xl transition-all hover:bg-white/5 text-white/60 hover:text-white;
+}
+
+.nav-link.active {
+  @apply bg-primary/10 text-primary;
+}
+
+@keyframes pulse-slow {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 0.6; }
+}
+
+.animate-pulse-slow {
+  animation: pulse-slow 4s infinite;
+}
