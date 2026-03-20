@@ -1,0 +1,10 @@
+{
+  "medical_qa": {
+    "file_name": "medical_qa/train.json",
+    "columns": {
+      "prompt": "instruction",
+      "query": "input",
+      "response": "output"
+    }
+  }
+}
