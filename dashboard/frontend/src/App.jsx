@@ -10,7 +10,10 @@ import {
   Cpu, 
   Database, 
   CheckCircle2,
-  AlertCircle
+  AlertCircle,
+  Download,
+  Search,
+  BookOpen
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { getStatus, startTraining, stopTraining, listConfigs, WS_LOGS_URL } from './lib/api';
@@ -203,15 +206,34 @@ export default function App() {
             </div>
           </div>
           <div className="glass-card p-8 flex flex-col gap-4">
-            <h2 className="text-2xl font-bold">Resources</h2>
-            <div className="flex flex-col gap-3">
-              <div className="flex items-center justify-between p-3 bg-white/5 rounded-xl">
-                <div className="flex items-center gap-3"><Database size={18} /> Finance Dataset</div>
-                <span className="text-xs text-white/40">v2.1</span>
+            <h2 className="text-2xl font-bold">Advanced Features</h2>
+            <div className="grid grid-cols-1 gap-4">
+              <div className="flex items-center gap-4 p-3 bg-white/5 rounded-xl border border-white/5 hover:border-primary/30 transition-all cursor-pointer group">
+                <div className="p-2 bg-primary/10 rounded-lg group-hover:bg-primary/20 transition-all">
+                  <Download size={20} className="text-primary" />
+                </div>
+                <div>
+                  <div className="font-semibold text-sm">Model Export & Quantization</div>
+                  <div className="text-xs text-white/40">GGUF/AWQ export for edge deployment</div>
+                </div>
               </div>
-              <div className="flex items-center justify-between p-3 bg-white/5 rounded-xl">
-                <div className="flex items-center gap-3"><Cpu size={18} /> Qwen-2.5-7B LoRA</div>
-                <span className="text-xs text-green-400">Live</span>
+              <div className="flex items-center gap-4 p-3 bg-white/5 rounded-xl border border-white/5 hover:border-secondary/30 transition-all cursor-pointer group">
+                <div className="p-2 bg-secondary/10 rounded-lg group-hover:bg-secondary/20 transition-all">
+                  <Search size={20} className="text-secondary" />
+                </div>
+                <div>
+                  <div className="font-semibold text-sm">RAG Integration Framework</div>
+                  <div className="text-xs text-white/40">FAISS-powered external knowledge retrieval</div>
+                </div>
+              </div>
+              <div className="flex items-center gap-4 p-3 bg-white/5 rounded-xl border border-white/5 hover:border-accent/30 transition-all cursor-pointer group">
+                <div className="p-2 bg-accent/10 rounded-lg group-hover:bg-accent/20 transition-all">
+                  <BookOpen size={20} className="text-accent" />
+                </div>
+                <div>
+                  <div className="font-semibold text-sm">Automated Notebook Generator</div>
+                  <div className="text-xs text-white/40">One-click Colab/Jupyter compatibility</div>
+                </div>
               </div>
             </div>
           </div>
