@@ -1,6 +1,6 @@
 {
-  "medical_qa": {
-    "file_name": "medical_qa/train.json",
+  "finance_sentiment": {
+    "file_name": "finance/sentiment.json",
     "columns": {
       "prompt": "instruction",
       "query": "input",

@@ -1,0 +1,4 @@
+[
+  {"instruction": "Analyze the sentiment of this headline: 'NVIDIA reports record quarterly revenue of $22.1 billion, up 265% from a year ago.'", "input": "", "output": "Sentiment: Strongly Positive. Rationale: The headline indicates record-breaking revenue and massive year-over-year growth (265%), exceeding typical market expectations."},
+  {"instruction": "Summarize the key takeaway from this earnings report excerpt: 'Despite a decrease in net income, the company saw a 15% increase in active users and successfully reduced operational costs by 10%.'", "input": "", "output": "Key Takeaway: The company is experiencing strong user growth and improved operational efficiency, which may offset the temporary decline in net income and signal long-term profitability."}
+]
