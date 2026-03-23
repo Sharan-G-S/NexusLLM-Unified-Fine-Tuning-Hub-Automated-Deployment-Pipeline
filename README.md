@@ -28,4 +28,5 @@ NexusLLM is a high-performance environment for fine-tuning **Financial Intellige
 
 ## Configuration
 - `configs/qwen2.5/sft_config.yaml`: Optimized hyperparameters for Qwen-2.5 on financial tasks.
+- Under Testing...
   
