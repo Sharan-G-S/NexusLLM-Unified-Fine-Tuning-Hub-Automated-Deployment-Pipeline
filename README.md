@@ -1,4 +1,4 @@
-# NexusLLM: Financial Intelligence Edition (Test)
+# NexusLLM: Financial Intelligence Edition (Test):
 
 NexusLLM is a high-performance environment for fine-tuning **Financial Intelligence** models using **LLaMA-Factory**. It is optimized for specializing models like **Qwen-2.5** for financial sentiment analysis, market trend reasoning, and automated investment insights.
 
